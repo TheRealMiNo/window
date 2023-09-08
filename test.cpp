@@ -37,41 +37,12 @@ void drawCircle(float cx, float cy, float r, int num_segments)
         y *= radial_factor;
     }
     glEnd();
-    glFlush();
 }
 
 int main() {
-//glewExperimental = true;
-glfwInit();
-glfwWindowHint(GLFW_SAMPLES, 4);
-glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-GLFWwindow* window = glfwCreateWindow(640, 480, "My Title", NULL, NULL);
-glfwMakeContextCurrent(window);
-glewInit();
-glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
 
+glColor3f(0.0, 0.5, 0.5);
+drawCircle(250, 250, 100, 360);
 
-
-while(!glfwWindowShouldClose(window)){
-    glClearColor(0.3, 0.3, 0.3, 1.0);
-    glClear(GL_COLOR_BUFFER_BIT);
-
-    // Call your drawCircle function here
-    glColor3f(1.0f, 1.0f, 1.0f);
-    glPointSize(10.0f);
-
-    glBegin(GL_POINTS);
-    glVertex3f(1.0f, 1.0f, 0.0f);
-    glVertex3f(-1.0f, -1.0f, 0.0f);
-    glEnd();
-    glFlush();
-
-    //drawCircle(250, 250, 100, 360);
-
-    glfwSwapBuffers(window);
-    glfwPollEvents();
-}
+return 0;
 }
